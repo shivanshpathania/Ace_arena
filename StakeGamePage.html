@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> <!-- Unicode Transformation Format -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stake</title>
+    <script src="https://kit.fontawesome.com/ab09901365.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #11233e;
+        }
+
+        .outerbox {
+            display: flex;
+
+        }
+
+        .leftbox {
+            border: none;
+            width: 20%;
+            height: 100vh;
+            position: fixed;
+            box-shadow: rgb(255, 255, 255) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            background-color: #071734;
+        }
+
+        .rightbox {
+            border: none;
+            box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+            width: 85%;
+            margin-left: 20%;
+            /* height: 390vh; */
+        }
+
+        .rightbox-tab {
+            border: none;
+            box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+            width: 95% !important;
+            margin-left: 5% !important;
+            /* height: 390vh; */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .row {
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 2%;
+        }
+
+        .nav {
+            display: flex;
+            margin-top: 2%;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
+
+        ul li {
+            list-style: none;
+            color: white;
+            padding-top: 3%;
+            margin: 5%;
+            cursor: pointer;
+        }
+
+        ul li:hover {
+            font-weight: bold;
+            color: rgb(255, 181, 7);
+        }
+
+        .container {
+            padding: 2%;
+            background-color: #1f2855;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            border: none;
+            border-radius: 5%;
+        }
+
+        /* right side navbar */
+        .navbar {
+            background-color: #071734;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
+
+        .name {
+            font-family: "Afacad Flux", sans-serif;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            .leftbox {
+                display: none;
+            }
+
+            .rightbox {
+                border: none;
+                box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+                width: 100%;
+                margin-left: 0%;
+            }
+
+        }
+
+        @media (min-width: 768px) {
+            .col-md-2 {
+                flex: 0 0 auto;
+                width: 16.4%;
+            }
+        }
+
+        /* game */
+        .gamecontainer {
+            /* height: 40vh; */
+            height: auto;
+            border-radius: 20px;
+            background: rgb(2, 0, 36);
+            padding: 20px;
+        }
+
+        .gamecontainer button:hover {
+            background-color: rgb(176, 176, 23);
+            color: aliceblue;
+        }
+
+        .inputgame {
+            margin-top: 15%;
+            width: 15%;
+            height: 9vh;
+            text-align: center;
+            font-weight: 900;
+            margin-left: 15%;
+            border-radius: 10px;
+
+        }
+
+        .name {
+            margin-top: 5%;
+
+            font-size: 3rem;
+            text-align: center;
+            text-decoration: underline;
+            font-family: "PT Serif", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        #btnclick {
+            border-radius: 10px;
+            outline: none;
+            cursor: pointer;
+            padding: 9px;
+            margin-left: 3rem;
+            transition: all .2s linear;
+            font-weight: 900;
+        }
+
+        #three {
+            margin-left: 1rem;
+        }
+
+        #two {
+            margin-left: 1rem;
+        }
+
+        .sbig {
+            border-radius: 20px;
+        }
+
+        .moneycontainer {
+            /* width: 30.5vw; */
+            height: 9vh;
+            display: flex;
+            align-items: first baseline;
+        }
+
+        #bal {
+            margin-left: 1rem;
+
+        }
+
+        .headerbal {
+            margin-top: 1rem;
+        }
+
+        .addmcont {
+            width: 30.5vw;
+            height: 9vh;
+            display: flex;
+        }
+
+        #inpt {
+            width: 100%;
+            height: 5vh;
+        }
+
+        #addmny {
+            height: 5vh;
+            border-radius: 10px;
+            background-color: blue;
+            color: wheat;
+            border: none;
+            width: 100%;
+        }
+
+
+        #widinpt {
+            width: 150px !important;
+            height: 40px;
+        }
+
+        .addmcont button:hover {
+            background: linear-gradient(45deg, rgba(0, 0, 255, 1), rgba(0, 0, 0, 1));
+            color: aliceblue;
+        }
+
+        .withdrawcont {
+            width: 30.5vw;
+            height: 9vh;
+            display: flex;
+        }
+
+        #widinpt {
+            height: 5vh;
+        }
+
+        #widmny {
+            width: 5vw;
+            height: 5vh;
+            border-radius: 10px;
+            background-color: blue;
+            color: wheat;
+            border: none;
+            position: relative;
+            right: 35%;
+        }
+
+        .withdrawcont button:hover {
+            background: linear-gradient(45deg, rgba(0, 0, 255, 1), rgba(0, 0, 0, 1));
+            color: aliceblue;
+        }
+
+        /* payment qr code */
+
+        .card {
+            width: 250px;
+            height: 400px;
+            background-color: whitesmoke;
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        img {
+            height: 53%;
+            border-radius: 10px;
+
+        }
+
+        .card h2 {
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+
+        .qrcard {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            display: none;
+        }
+
+
+        /* tss coin */
+
+
+        .coincontainer {
+            border-radius: 20px;
+            background: rgb(2, 0, 36);
+        }
+
+        #coin {
+            width: 100px;
+            height: 100px;
+            transition: transform 0.5s;
+        }
+
+
+        #headsTailButtons button {
+            margin: 0 10px;
+        }
+
+        #resultMessage {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .flpcn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: sticky;
+        }
+
+        #perspin {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+
+        }
+
+        #pertoss {
+            margin-top: 10px;
+
+        }
+
+        #gamehead {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: aqua;
+            margin-bottom: 3rem;
+            font-family: "Crimson Text", serif;
+            font-weight: 400;
+        }
+
+
+        #sucesspayment {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            display: none;
+            box-shadow:chartreuse;
+        }
+
+        .rotation {
+            animation: rotateAnimation 1s ease-in-out;
+        }
+
+        @keyframes rotateAnimation {
+            from {
+                transform: scale(.01);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid outerbox">
+        <div class="leftbox container-fluid">
+            <div class="nav navbar container-fluid text-center" style="height: 10vh;">
+                <div class="time text-white"></div>
+            </div>
+
+            <div class="nav navbar container-fluid" style="height: 8vh;">
+
+                <button type="button" class="btn btn-primary btn-lg ps-4 pe-4 "
+                    style="height: 5vh; border-radius: 5px; border: none;"><a href="stakeloginpage.html"
+                        class="text-white" style="text-decoration: none;">CASINO</a></button>
+
+                <button type="button" class="btn btn-primary btn-lg ps-4 pe-4"
+                    style="height: 5vh; border-radius: 5px; border: none; "><a href="stakeinsidepage.html"
+                        class="text-white" style="text-decoration: none;">SPORTS</a></button>
+
+
+            </div>
+            <!-- 1st list -->
+            <div class="container mt-4">
+                <ul>
+                    <li><i class="fa-solid fa-gift"></i> <a href="stakeregisterpage.htm"
+                            style="color: white; text-decoration: none; ">SignIn/Register</a> <i
+                            class="fa-solid fa-angle-right"></i></li>
+                    <li><i class="fa-solid fa-star-of-life"></i> <a href="stakeaffilatepage.html"
+                            style="color: white; text-decoration: none; ">Payments</a></li>
+                    <li><i class="fa-solid fa-trophy"></i> <a href="stakevipclub.html"
+                            style="color: white; text-decoration: none; ">VIP Club</a></li>
+                    <li><i class="fa-regular fa-newspaper"></i> <a href="stakeblogpage.html"
+                            style="color: white; text-decoration: none;">Blog</a></li>
+                    <li><i class="fa-brands fa-rocketchat"></i> <a href="StakeGamePage.html"
+                            style="color: white; text-decoration: none;">Game-section</a></li>
+                </ul>
+            </div>
+            <!-- second navigation bar -->
+            <div class="container mt-4">
+                <ul>
+                    <li><i class="fa-solid fa-handshake"></i> Sponsorships <i class="fa-solid fa-angle-right"></i></li>
+                    <li><i class="fa-solid fa-shield-halved"></i> <a style="color: white; text-decoration: none;"
+                            href="stakeProfilePage.htm">Profiles</a></li>
+                    <li><i class="fa-solid fa-headphones"></i> <a href="stakelivesupport.htm"
+                            style="color: white; text-decoration: none;"> Live Support</a></li>
+                    <li><i class="fa-solid fa-globe"></i> Language</li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- rightbox -->
+        <div class="rightbox container-fluid" id="home">
+
+            <nav class="navbar container-fluid navbar-expand-sm">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color:white;"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse collapse" id="navbarSupportedContent">
+                        <form action="" class="d-flex">
+                            <button type="button" id="open" class="btn btn-primary btn-lg mx-3"
+                                style="border-radius: 5px; border: none;"><i class="fa-solid fa-grip-lines p-2"
+                                    style=" border-radius: 5px; border: none; "></i></button>
+                        </form>
+
+                        <a class="navbar-brand " href="#" style="width: 10%;"><img style="width: 60%;"
+                                src="https://mybetting-in.imgix.net/assets/local/stake-logo-white-1_2022-12-24-062445_qtiy.png"
+                                alt=""></a>
+
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#About">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#list">Other</a>
+                            </li>
+                        </ul>
+
+                        <form class="d-flex" role="search">
+                            <!-- <button class="btn bg-primary p-2 text-white me-2 " type="submit"><b>genQr</b></button> -->
+                            <button class="btn bg-primary p-2 text-white me-2" id="genQrBtn"
+                                type="button"><b>genQr</b></button>
+
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <!-- right container image section start -->
+            <div class="container " style="background-color: #071734;">
+                <h1 id="gamehead">Game_Section</h1>
+                <div class="row text-white ">
+                    <div class="col-lg-5 col-md-10 col-sm-10 border ms-md-5 ms-lg-5 gamecontainer">
+                        <h1 class="text-warning name">Lucky-Draw</h1>
+                        <input type="text" id="one" class="inputgame">
+                        <input type="text" id="two" class="inputgame">
+                        <input type="text" id="three" class="inputgame">
+                        <button id="btnclick">Spin</button>
+                        <div>
+                            <h2 id="perspin" class="text-warning" style="font-family:Arial, Helvetica, sans-serif;">$2
+                                per spin</h2>
+                        </div>
+
+
+
+                    </div>
+                    <!-- balance -->
+                    <div class="col-lg-5 col-md-10 col-sm-10 border ms-md-5 ms-lg-5 offset-lg-1 mt-lg-0 mt-sm-5 mt-md-5 sbig">
+                        <div class="moneycontainer">
+                            <h2 class="headerbal">Balance <span class="text-warning">$</span></h2>
+                            <span id="bal" class="balance bg-primary text-center p-2  balance"
+                                style="border-radius: 5px 5px 5px 5px;">
+                                <!-- <b id="balance">0</b> -->
+                                 <h6 id="balance">0</h6>
+                            </span>
+                        </div>
+                        <br>
+                        <div class="addmcont">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-3">
+                                    <h4 id="addmheader">Add <span class="text-warning">$</span> :</h4>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" id="inpt" placeholder="Enter Amount" class="ms-0"
+                                        class="form-control">
+                                </div>
+                                <div class="col-lg-3">
+                                    <button id="addmny" style="width: 100%;">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="withdrawcont">
+                            <div class="row">
+                                <div class="col-12 col-md-5">
+                                    <h4 id="addmheader">Withdraw <span class="text-warning">$</span> :</h4>
+                                </div>
+                                <div class="col-12 col-md-5 mb-2"> 
+                                    <input type="text" class="form-control" id="widinpt" placeholder="Enter Amount">
+                                </div>
+                                <div class="col-12 col-md-2"> 
+                                    <button id="widmny" class="btn btn-primary ">Withdraw</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div> 
+
+
+                    <!-- balance ends -->
+                    <br><br>
+
+                    <!-- toss coin -->
+
+                    <div class="row">
+                        <!-- Coin Toss Game -->
+                        <br><br>
+                        <div class="col-lg-5 col-md-10 col-sm-10 border ms-md-5 ms-lg-5 coincontainer">
+                            <h1 id="coinToss" class="text-warning name">Coin Toss</h1><br>
+                            <div id="coinContainer" class="text-center">
+                                <img id="coin" src="up.png" style="border-radius: 50%;" alt="coin" width="100">
+                            </div>
+
+                            <div class="allbtns ms-lg-5 mt-lg-5 ms-md-5 mt-md-5">
+                                <div id="headsTailButtons" class="leftmarginHeadTail ms-lg-4 ms-md-5">
+                                    <button id="headsBtn" class="btn btn-success ">Heads</button>
+                                    <button id="flipCoinBtn" class="btn btn-warning">Flip Coin</button>
+                                    <button id="tailsBtn" class="btn btn-danger ">Tails</button>
+                                    <div>
+                                        <h2 id="pertoss" class="text-warning ms-md-5 ms-lg-5"
+                                            style="font-family: Arial, Helvetica, sans-serif;">$10 per spin</h2>
+                                    </div>
+                                    <div id="resultMessage"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- toss coin end-->
+                    </div>
+
+                </div>
+                <!-- end of right container -->
+
+                <!-- payment QR -->
+
+                <div class="card qrcard">
+                    <img src="gpay qr.jpeg" alt="">
+                    <h2>Scan and Pay</h2>
+                    <p>Lorem ipsum dolor, sit spernatur officiis ad iure quis.</p>
+                </div>
+
+
+                <!-- <div> -->
+                <img style="border-radius: 50%;  width: 15% ; height: 25%;"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAXVBMVEU+rf////82q/8kp//B4v/7/v9Vtf8zqv/x+f9Dr//S6v+23f+Tzf9wv//g8f9mvP/u+P/I5f+k1P+Cxv+a0P+r2P+z2/9+xf/P6P9fuf9pvf/Z7f/i8v+Jyv9Lsv+mmg9LAAAJXUlEQVR4nOXd53LiMBAAYBWwAGNCJ0Dw+z/myRiCDVYvu77sv2RuLv5G8qpYhdDksb5uyu1yV52Lek6amNfFudott+Xmuk7/50nC/3u6KvdVwTgXQjDGSDfkz/K3nLOi2peracKnSCVclbdCSFrfNRRSykVxK1eJniSFcHWoGLew9Z1cVIcUytjC2WQ3d9V1lPPdZBb5iaIKZ8cvX11H+XWMiownnJXBvBeyjIeMJVycbLKKPVKcFpGeLIpwdqh5PN4DyetDlIKMIPy5CRGZ14YQtx8EwkUVvfhewXgVXFkDhd/nhL7WeP4GFC5S+x7GoHIMEK4uGXyt8RLQ2fEWzk6ZfK3x5J1XfYXbRPlTFUJsswq/67y+u7H2Szk+QllBs/ua8KuqHsIJy1+AbQg2ySCcVTAF2AavnIvRVbhh+TLoUDC2SSu8QRZgG/yWULguoN7AbojCaYbORTiJOAIMCSZcEo6DcAlfQ5/BlwmE0wuGGvoMcbGeYrUVrgF6MboQte3LaCm8AjcSn8HYNaZwgucVfAW3yzdWwiNGoCQeYwm3OIGSaDOishDusQIlcR9DiKgZ/AyLhtEoRA20IZqEiKtoG8aKahCiTTKvMKUbvRBpM9EPQ6OhFaJs6D9D3/TrhNdxACVR14HTCNfYuqLqYJpuuFo4rUckrNWDKbUQ1XjQFOLiLlyOCSiJypZfJRxJGn2FMqEqhOtxlWATQpFtFMJiPFnmGaxwEd7GV4SyEIenigeFm7G9hG3wwQn/IeF0fFW0DTb02WZIWGEW6j7tscpOiLqhYOeD5vGGmoxP4Qx1CRZTqiMO1NNP4QlxHm2A2lGrOJmF34jraAukulLkH8sZPoR1xid2jCdQW4q1SbjFW0dfQF0pfqy7eRPOxgHUEt+SzZsQb5rpAzXE92TTF67Qppl3oIbI+8v8+sIL1rbwE6hON6w/3u8JF1iLcAioJvLeetSe8Iy0CIeByorKzioh1sZeBVSWYq/Z7wqRFqEaqCL2CrEjRPoW6oCqitp9EztCnMNCPVBRit2B4kv4g7IITUBKb0MFw19bUYj+X0KHGTgZ7IWx16zUrxBlj9QCqKh5r97pr/CAUOgPJOLwIZxnfXarCAASMn8XImwqgoCvBuMpPKHLM2FAwp6DqIcQX54JBL5yzUNYYhMGA4koe8IvZJU0HEjYV1c4Q5ZnIgBlrpl1hEdclTQKkIhjR4irksYBPqspwVdJIwGf1fQuHO69AkU0IGk3ntyFO0SVNB6QsN2vEFGfNCLw0TdthIjmgaMC27nhRohn4BQX2A6hGiGaCZrIwHa6phFiKcLYQFmIrRDLaxgfeH8RCZpxRQLgfXxBsEyypQDep9yksEjwvM6RBEhI0QinGCppIiARUynEkGhSAZtUQzAkmmTAJtUQugcXpgMSsZdC8B5NQmDTqyHgqTQlsEmmhAIXYVogYZSsYVNpYiDhawK7fSs1kPAr2UCm0uRAIjYEsjlMD5QNIgFcbpkBSMSWLB3P+w39k53/KgOQsCVxm0kU8VYVZQEStiNOXRrxFe1jcR6g7NSQs8M/F82XgDjETEAifQ6dNtF+6ohBzAaUPvu1+Q9gDGI+oPRZz+j/AsOJGYH2vi4wlJgTaB89YBhxFMAQ4kiA/sTRAH2JAECLXDMI9CPmB84t2kMF0IcIUIK1uU+jBLoTId7Bwtgv1QBdiSBJ5mwaW2iBbkQQoBxb6MeHg/u//YgwzYQcHxrG+IXp7GVbIlA7KMf4hnkaNo9DhGroxdY41xaHCNaTEaV5vjQGEa6rJjYWc97hRMC+KL/afLcIJUJ2tvna6ttTGBF0NMEsvx+GEGGHS4XtN2B/Iizw/g3Y7ju+LxF4wHv/jm/58cmPCD2iv6/FsF1P40OEBrbraazXRLkTwYHtmij7xRiuRHhgu67NYW2iGxEB8LE20eE7twsRAfC5vtRl6Z49EQPwuUbYaZ23LREFUPbZPNbq2xGRAJ9r9d32W9gQBQrga7+F4xpaCyIO4GvPjOu+JzPRFJk+vvzue3LeuxZKzATs7F1z3n8YRsz1+ayz/9B9D2kIMdv3wc4eUo99wP7EbMDuPmCfvdy+xHxfeHt7uX22OvsRM37C7u3H99qu7kPMCOyfqeC3rcSdmHMRwtu5GH5nm7gSs66yeDvbxPN8GjdiVuD7+TS+y2NciHnXyXycMeS7J9+emHkh0Mc5Ud5b1m2JmYEDZ315n6NkR8y9lGvgvDb/7cA2xNzAoTP3As5NNBOzL8YbPDcxYCOiiZgdOHz2ZciqWD0x/3JKxfmlIWfQ6oj5gaozaIPOEVYTARbEKs8RDjpIWEUEAKrPgg5bgj9MhFjSrDnPO+xM9iEiBFB3Jnvg+QqfRJAra7Tn6gfejfBOBAHq70YIPeWzT4S5dMhwv0XoHSVdIhDQcEdJ8D0zLyLQtVHGe2aCrw94EoGAFncFBV/E0hKBgDb3PYXf2dUQoW42s7qzK/zpWF0CAe3uXYtxBh/QKQa2d+f9gfsP//87LP/APaR/4C7ZP3AfMO6rOofC9U7nP3Av9x+4W51O6/FkG1arl5mphXQ9IqEiyxiEFPagM4fgV41CJxxLQlWmUbNQd2crnuBHrUEvpFv8RP4+MeMmpHvsRL43CExCusRN5MqW3lqIm2gGWggxV1RjFbUT4k03piRjLcTaaBiaCRchzqZf39A7CumVYeukMqbrqrkL6brGNZgStaaz7SWkU1TjRXEx7cpxF6JqGC2aQR8hnQgcLyMTdjnGXUjXBYaaKgrbV9BdSOkNvqby4YnfWEK6AW42GBucuo8opLMKshh55bzHw1koEw6DehsFc0kx/kI6OwF9oz/57EPyEVL6DdDDEfXHIoSEwmbdTV6j+Fgnk1rYVNV8WZX5VdAwIaWrSyYj45eV+XESCCldnDMYGT8vzI+SSChTTmqj9PklmFhCWY5VQiPjVVD5RRFS+nNLlFeFuP2Y/3wGocyrhzp6QTJeH0KPbrhHFKGMxUlEHD0yIU7B1fMRsYSyIMsvHgXJBP8qoxTfPeIJZcyOwciGd4zHo5GFMmaT3dxXKXXz3SQqj8YXNrE6VMxVKXWiOgR0XZSRQtjEqrwV8qEtnDKrcFHcyhS6JlIJm5iuyn1VMC6hgr3Nfsif5W85Z0W1L1fWk58ekVL4iPV1U26Xu+pc1O2G8XldnKvdclturk6zZn7xD2Z+edfVMFhmAAAAAElFTkSuQmCC"
+                    alt="" loading="lazy" id="sucesspayment" class="rotation">
+                <!-- </div> -->
+
+
+
+            </div> <!--end of main div which contain these two left and right container-->
+
+            <script>
+
+
+
+                // open close side toggle bar
+
+                let openClick = document.querySelector("#open");
+                let leftbox = document.querySelector(".leftbox");
+                let rightbox = document.querySelector(".rightbox");
+                const mediaQ = window.matchMedia("(min-width: 1100px)");
+                let check = mediaQ.matches;
+                openClick.addEventListener("click", () => {
+                    if (check) {
+                        leftbox.classList.add("hidden");
+                        rightbox.classList.add("rightbox-tab");
+                        check = false;
+                    }
+                    else {
+                        rightbox.classList.remove("rightbox-tab");
+                        leftbox.classList.remove("hidden");
+                        check = true;
+                    }
+                });
+
+
+                // Initialize balance
+                var balance = 0;
+                //    game js
+                
+
+                const rndmone = document.getElementById('one');
+                const rndmtwo = document.getElementById('two');
+                const rndmthree = document.getElementById('three');
+                const btn = document.getElementById('btnclick');
+
+                btn.addEventListener('click', function () {
+                    
+                    numOne();
+                    numTwo();
+                    numThree();
+
+                   
+                    balance -= 2;  // Deduct 2 rupees from balance after spin
+
+
+                    
+                    updateBalance();
+
+                   
+                    if (balance < 0) {
+                        alert("Insufficient balance for spin!");
+                        balance += 2; 
+                        updateBalance();
+                    }
+                })
+
+
+                function numOne() {
+                    rndmone.value = (Math.floor(Math.random() * 10));
+                }
+                function numTwo() {
+                    rndmtwo.value = (Math.floor(Math.random() * 10));
+                }
+                function numThree() {
+                    rndmthree.value = (Math.floor(Math.random() * 10));
+                }
+
+
+
+             
+                const balanceElement = document.getElementById("bal");
+
+                const addMoneyButton = document.getElementById("addmny");
+                
+                const withdrawMoneyButton = document.getElementById("widmny");
+                const addMoneyInput = document.getElementById("inpt");
+                const withdrawMoneyInput = document.getElementById("widinpt");
+
+                
+                function updateBalance() {
+                    balanceElement.innerHTML = `<b>${balance}</b>`;
+                    localStorage.setItem('balance', balance); 
+                }
+
+                // Add money function
+                addMoneyButton.addEventListener("click", () => {
+                    const amountToAdd = parseFloat(addMoneyInput.value);
+
+                
+                    if (isNaN(amountToAdd) || amountToAdd <= 0) {
+                        alert("Please enter a valid amount greater than 0.");
+                        return;
+                    }
+
+                    
+                    balance += amountToAdd;
+
+                   
+                    addMoneyInput.value = "";
+
+                    // Show QR code
+                    qrCard.style.display = 'block';
+
+
+                    async function run() {
+                        await setTimeout(() => {
+                            qrCard.style.display = 'none';
+                            updateBalance();
+                            sucesspayment.style.display = 'block';
+                            successpayment.classList.add('rotation');
+                        }, 10000);
+
+                        await setTimeout(() => {
+                            sucesspayment.style.display = 'none';
+                        }, 11500);
+                    }
+                    run();
+
+                });
+
+                // Withdraw money function
+                withdrawMoneyButton.addEventListener("click", () => {
+                    const amountToWithdraw = parseFloat(withdrawMoneyInput.value);
+
+                  
+                    if (isNaN(amountToWithdraw) || amountToWithdraw <= 0) {
+                        alert("Please enter a valid amount greater than 0.");
+                        return;
+                    }
+
+                  
+                    if (amountToWithdraw > balance) {
+                        alert("Insufficient balance to withdraw.");
+                        return;
+                    }
+
+                   
+                    balance -= amountToWithdraw;
+
+               
+                    withdrawMoneyInput.value = "";
+
+                  
+                    async function run() {
+                        await setTimeout(() => {
+                            qrCard.style.display = 'none';
+                            updateBalance();
+                            sucesspayment.style.display = 'block';
+                            successpayment.classList.add('rotation');
+                        }, 1100);
+                       
+                        await setTimeout(() => {
+                            sucesspayment.style.display = 'none';
+                        }, 3000);
+                    }
+                    run();
+                });
+
+                // qrcard js
+
+                let qrCard = document.querySelector('.qrcard');
+                let genQrBtn = document.getElementById('genQrBtn');
+
+      
+                function showAndHideQrCard() {
+                    qrCard.style.display = 'block';
+                    setTimeout(() => {
+                        qrCard.style.display = 'none';
+                        balance += 10;
+                        balanceElement.innerHTML = `<b>${balance}</b>`;
+
+                    }, 10000);
+                    async function run() {
+                        await setTimeout(() => {
+                            qrCard.style.display = 'none';
+                            updateBalance();
+                            sucesspayment.style.display = 'block';
+                            successpayment.classList.add('rotation');
+                        }, 10000);
+
+                        await setTimeout(() => {
+                            sucesspayment.style.display = 'none';
+                        }, 11500);
+                    }
+                    run();
+                }
+
+               
+                genQrBtn.addEventListener('click', showAndHideQrCard);
+
+
+                // toss coin
+
+                let coin = document.getElementById("coin");
+                let flipCoinBtn = document.getElementById("flipCoinBtn");
+                let headsBtn = document.getElementById("headsBtn");
+                let tailsBtn = document.getElementById("tailsBtn");
+                let resultMessage = document.getElementById("resultMessage");
+
+                // Coin Toss function
+                function flipCoin() {
+                    if (balance < 10) {
+                        alert("Please add more than 10 balance to play!");
+                        return;
+                    }
+                    // Disable both head and tail buttons during coin flip
+                    headsBtn.disabled = true;
+                    tailsBtn.disabled = true;
+
+                  
+                    coin.style.transform = "rotateY(1800deg)"; 
+
+                    
+                    setTimeout(function () {
+                        let tossResult = Math.random() < 0.5 ? "heads" : "tails";  
+                        coin.style.transform = "rotateY(0deg)"; 
+                        resultMessage.innerHTML = "Coin shows: " + tossResult.charAt(0).toUpperCase() + tossResult.slice(1);
+
+              
+                        if (userChoice === tossResult) {
+                            resultMessage.innerHTML += "<br><span class='text-success'>You won! +10 Balance</span>";
+                            balance += 10; 
+                        } else {
+                            resultMessage.innerHTML += "<br><span class='text-danger'>You lost! -10 Balance</span>";
+                            balance -= 10;  
+                        }
+
+                        updateBalance();
+
+                        // Re-enable
+                        headsBtn.disabled = false;
+                        tailsBtn.disabled = false;
+                        headsBtn.style.display = "inline"; 
+                        tailsBtn.style.display = "inline"; 
+                    }, 500);
+                }
+
+              
+                let userChoice = null; 
+
+                headsBtn.addEventListener("click", function () {
+                    if (balance < 10) {
+                        alert("Please add more than 10 balance to play!");
+                        return;
+                    }
+                    userChoice = "heads";
+                    tailsBtn.style.display = "none"; 
+                    flipCoinBtn.disabled = false;  
+                });
+
+                tailsBtn.addEventListener("click", function () {
+                    if (balance < 10) {
+                        alert("Please add more than 10 balance to play!");
+                        return;
+                    }
+                    userChoice = "tails"; 
+                    headsBtn.style.display = "none"; 
+                    flipCoinBtn.disabled = false;  
+                });
+
+               
+                flipCoinBtn.addEventListener("click", flipCoin);
+
+
+
+                // show date time
+                let time = document.querySelector(".time");
+                setInterval(() => {
+                    let now = new Date();
+                    time.textContent = now;
+                }, 1000);
+
+
+            </script>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+                integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+                integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+                crossorigin="anonymous"></script>
+</body>
+
+</html>

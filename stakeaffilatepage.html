@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stake</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Font+Name&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ab09901365.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #11233e;
+        }
+
+        .outerbox {
+            display: flex;
+        }
+
+        .leftbox {
+            border: none;
+            width: 20%;
+            height: 100vh;
+            position: fixed;
+            box-shadow: rgb(255, 255, 255) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            background-color: #071734;
+        }
+
+        .rightbox {
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            width: 78%;
+            margin-left: 22%;
+        }
+
+        .rightbox-tab {
+            border: none;
+            box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+            width: 95% !important;
+            margin-left: 5% !important;
+            /* height: 390vh; */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .btn {
+            padding: 2%;
+        }
+
+        .nav {
+            display: flex;
+            margin-top: 2%;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
+
+        ul li {
+            list-style: none;
+            color: white;
+            padding-top: 3%;
+            margin: 5%;
+            cursor: pointer;
+        }
+
+        ul li:hover {
+            font-weight: bold;
+            color: rgb(255, 181, 7);
+        }
+
+        .container {
+            padding: 2%;
+            background-color: #1f2855;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            border: none;
+        }
+
+        /* right side navbar */
+        .navbar {
+            background-color: #071734;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+        }
+
+        /* right box */
+        .cont {
+            background-color: #11233e;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            .leftbox {
+                display: none;
+            }
+
+            .rightbox {
+                border: none;
+                box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+                width: 100%;
+                margin-left: 0%;
+            }
+
+        }
+        @media (min-width: 768px) {
+    .col-md-2 {
+        flex: 0 0 auto;
+        width:16.4%;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="outerbox container-fluid">
+        <div class="leftbox container-fluid">
+            <div class="nav navbar container-fluid text-center" style="height: 10vh;">
+                <!-- <h3 class="text-warning text-center"> ACE ARENA !</h3> -->
+            </div>
+
+            <div class="nav navbar container-fluid" style="height: 8vh;">
+
+                <button type="button" class="btn btn-primary btn-lg ps-4 pe-4 "
+                    style="height: 5vh; border-radius: 5px; border: none;"><a href="stakeloginpage.html"
+                        class="text-white" style="text-decoration: none;">CASINO</a></button>
+
+                <button type="button" class="btn btn-primary btn-lg ps-4 pe-4"
+                    style="height: 5vh; border-radius: 5px; border: none; "><a href="stakeinsidepage.html"
+                        class="text-white" style="text-decoration: none;">SPORTS</a></button>
+
+
+            </div>
+            <!-- 1st list -->
+            <div class="container mt-4">
+                <ul>
+                    <li><i class="fa-solid fa-gift"></i> <a href="stakeregisterpage.htm" style="color: white; text-decoration: none; ">SignIn/Register</a> <i class="fa-solid fa-angle-right"></i></li>                  
+                    <li><i class="fa-solid fa-star-of-life"></i> <a href="stakeaffilatepage.html"style="color: white; text-decoration: none; ">Payments</a></li>
+                    <li><i class="fa-solid fa-trophy"></i> <a href="stakevipclub.html"
+                            style="color: white; text-decoration: none; ">VIP Club</a></li>
+                    <li><i class="fa-regular fa-newspaper"></i> <a href="stakeblogpage.html"
+                            style="color: white; text-decoration: none;">Blog</a></li>
+                            <li><i class="fa-brands fa-rocketchat"></i> <a href="StakeGamePage.html"
+                                style="color: white; text-decoration: none;">Game-section</a></li>
+                </ul>
+            </div>
+            <!-- second navigation bar -->
+            <div class="container mt-4">
+                <ul>
+                    <li><i class="fa-solid fa-handshake"></i> Sponsorships <i class="fa-solid fa-angle-right"></i></li>
+                    <li><i class="fa-solid fa-shield-halved"></i> <a style="color: white; text-decoration: none;"  href="stakeProfilePage.htm">Profiles</a></li>
+                    <li><i class="fa-solid fa-headphones"></i><a href="stakelivesupport.htm"
+                        style="color: white; text-decoration: none;">Live Support</a></li>
+                    <li><i class="fa-solid fa-globe"></i> Language</li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- rightbox -->
+        <div class="rightbox contanier-fluid">
+
+            <nav class="navbar container-fluid navbar-expand-sm">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color:white;"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse collapse" id="navbarSupportedContent">
+                        <form action="" class="d-flex">
+                            <button type="button" id="open" class="btn btn-primary btn-lg mx-3"
+                                style="border-radius: 5px; border: none;"><i class="fa-solid fa-grip-lines p-2"
+                                    style=" border-radius: 5px; border: none; "></i></button>
+                        </form>
+
+                        <a class="navbar-brand " href="#" style="width: 10%;"><img style="width: 60%;"
+                                src="https://mybetting-in.imgix.net/assets/local/stake-logo-white-1_2022-12-24-062445_qtiy.png"
+                                alt=""></a>
+
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#list">Other</a>
+                            </li>
+                        </ul>
+
+                        <form class="d-flex" role="search">
+                            <button class="btn SI btn-primary text-white me-2" type="submit"><a href="stakeregisterpage.htm" style="color: white; text-decoration: none; ">SignIn/Register</a></button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <!-- right container image section -->
+
+            <div class="container cont">
+                <div class="row mt-5">
+                    <div class="col-md-3 col-sm-6 text-white">
+                        <h2>Balance <span class="text-warning">$</span></h2><br>
+                        <div class="balance bg-primary text-center p-1 balance" style="border-radius: 5px 10px;">
+                            <b>1500</b>
+                        </div>
+                    </div>
+            
+                    <div class="offset-md-1 col-md-4 col-sm-6 text-white">
+                        <h2>Debit Money</h2><br>
+                        <div class="balance" style="border-radius: 5px 10px;"><input class="dm" type="number" name=""
+                                placeholder="Enter Amount" id=""><button
+                                class=" ms-3 btn btn-primary btn-sm dmbtn">Submit</button></div>
+                    </div>
+            
+                    <div class="col-md-4 col-sm-6 text-white">
+                        <h2>Credit Money</h2><br>
+                        <div class="balance" style="border-radius: 5px 10px;"><input class="cm" type="number" name=""
+                                placeholder="Enter Amount" id=""><button
+                                class=" ms-3 btn btn-primary btn-sm cmbtn">Submit</button></div>
+                    </div>
+                </div>
+            </div><br>
+            <!-- password generator -->
+            <div class="container cont text-white">
+                <h5>Generate Random password for your account :</h5><br>
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">Password:</div>
+                    <div class="col-md-4 col-sm-6 ms-2 text-center pswd" style="border: 1px solid cyan; border-radius: 5px 10px;">
+                    </div>
+            
+                    <div class="col-md-3 col-sm-6 offset-md-1">
+                        <button class="btn btn-primary" onclick="GeneratePassword()">Generate Password</button>
+                    </div>
+                </div>
+            </div>
+            <!-- OTP generator -->
+            <div class="container cont text-white">
+                <h5>Generate OTP :</h5><br>
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">OTP:</div>
+                    <div class="col-md-4 col-sm-6 text-center otp" style="border: 1px solid cyan; border-radius: 5px 10px;">
+                    </div>
+            
+                    <div class="col-md-3 col-sm-6 offset-md-1">
+                        <button class="btn btn-primary" onclick="GenerateOTP()">Generate OTP</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container cont">
+                <div class="row text-white">
+                    <div class="offset-md-1 col-md-5 col-sm-6 dtrans">
+                        <h3 class="text-warning">Debit Transaction</h3><br>
+                    </div>
+            
+                    <div class="col-md-5 col-sm-6 ctrans">
+                        <h3 class="text-warning">Credit Transaction</h3><br>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- endlist start-->
+
+            <div class="container-fluid mt-5" style="background-color: #071223;" id="list">
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>Sports</h3>
+                            </li>
+                            <li>sportsbook</li>
+                            <li>live support</li>
+                            <li>soccer</li>
+                            <li>basketball</li>
+                            <li>tennis</li>
+                            <li>esports</li>
+                            <li>betting</li>
+                            <li>racing</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>Casino</h3>
+                            </li>
+                            <li>casino games</li>
+                            <li>Slots</li>
+                            <li>Live Casino</li>
+                            <li>Roulette</li>
+                            <li>Blackjack</li>
+                            <li>Providers</li>
+                            <li>VIP club</li>
+                            <li>Promotions</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>Support</h3>
+                            </li>
+                            <li>Fairness</li>
+                            <li>Affiliate</li>
+                            <li>Gambling</li>
+                            <li>Aware</li>
+                            <li>Help Center</li>
+                            <li>Guides</li>
+                            <li>Local Currency</li>
+                            <li>Crypto</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>Community</h3>
+                            </li>
+                            <li>Blog</li>
+                            <li>Forum</li>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Instagram</li>
+                            <li>Youtube</li>
+                            <li>Shop</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>About_Us</h3>
+                            </li>
+                            <li>Privacy Policy</li>
+                            <li>Licenses</li>
+                            <li>AML Policy</li>
+                            <li>Terms&Conditions</li>
+                            <li>Self Exclusion</li>
+                            <li>Primedice</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>Language</h3>
+                            </li>
+                            <li>English</li>
+                            <li>Odds</li>
+                            <li>Decimal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- end list end -->
+
+
+
+        </div>
+
+    </div>
+
+    <script>
+
+
+        let bal = document.querySelector(".balance");
+        let debitInput = document.querySelector(".dm");
+        let creditInput = document.querySelector(".cm");
+        let debitButton = document.querySelector(".dmbtn");
+        let creditButton = document.querySelector(".cmbtn");
+
+        let dt = document.querySelector(".dtrans");
+        let ct = document.querySelector(".ctrans");
+
+        // debit money
+
+        debitButton.addEventListener("click", () => {
+            let val = parseInt(debitInput.value);
+            let curbal = parseInt(bal.textContent) + val;
+            bal.innerHTML = `<b>${curbal}</b>`;
+            let mdh5 = document.createElement("h5");
+            mdh5.textContent = `Money Debited: ${val}`;
+            let bh = document.createElement("h5");
+            bh.textContent = `Balance: ${curbal}`;
+            bh.style.color = "cyan";
+            dt.append(mdh5, bh);
+            debitInput.value = '';
+        });
+
+        // credit money
+
+        creditButton.addEventListener("click", () => {
+            let val = parseInt(creditInput.value);
+            let curbal = parseInt(bal.textContent) - val;
+            bal.innerHTML = `<b>${curbal}</b>`;
+            let mch5 = document.createElement("h5");
+            mch5.textContent = `Money Credited: ${val}`;
+            let bh = document.createElement("h5");
+            bh.textContent = `Balance: ${curbal}`;
+            bh.style.color = "cyan";
+            ct.append(mch5, bh);
+            creditInput.value = '';
+        });
+
+
+        // random password generator
+
+        let pswd = document.querySelector(".pswd");
+
+        function GeneratePassword() {
+            setTimeout(() => {
+                let alphas = "ABCDEFGHIJKLMNOPQRSTUVWXYSabcdefghijklmnopqrstuvwxyz0123456789@_$#&"
+                let length = 12;
+                let pw = "";
+                for (let i = 1; i <= length; i++) {
+                    let randomindex = Math.floor(Math.random() * alphas.length);
+                    pw = pw + alphas.charAt(randomindex);
+                }
+                pswd.innerHTML = `<i>${pw}</i>`;
+            }, 500);
+        }
+
+        // generate OTP
+        let otp = document.querySelector(".otp");
+
+        function GenerateOTP() {
+            setTimeout(() => {
+                let num = Math.floor(Math.random() * 9000 + 1000);
+                otp.innerHTML = `<i>${num}</i>`;
+            }, 500);
+        }
+
+        // open close side toggle bar
+
+        let openClick = document.querySelector("#open");
+        let leftbox = document.querySelector(".leftbox");
+        let rightbox = document.querySelector(".rightbox");
+        const mediaQ = window.matchMedia("(min-width: 1100px)");
+        let check = mediaQ.matches;
+        openClick.addEventListener("click", () => {
+            if (check) {
+                leftbox.classList.add("hidden");
+                rightbox.classList.add("rightbox-tab");
+                check = false;
+            }
+            else {
+                rightbox.classList.remove("rightbox-tab");
+                leftbox.classList.remove("hidden");
+                check = true;
+            }
+        });
+
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

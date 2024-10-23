@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stake</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Font+Name&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ab09901365.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #11233e;
+        }
+
+        .outerbox {
+            display: flex;
+        }
+
+        .leftbox {
+            border: none;
+            width: 20%;
+            height: 100vh;
+            box-shadow: rgb(255, 255, 255) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            background-color: #071734;
+            position: fixed;
+        }
+
+        .rightbox {
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            width: 78%;
+            margin-left: 22%;
+            /* height: 250vh; */
+        }
+
+
+        .rightbox-tab {
+            border: none;
+            box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+            width: 95% !important;
+            margin-left: 5% !important;
+            /* height: 390vh; */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .btn {
+            padding: 2%;
+        }
+
+        .nav {
+            display: flex;
+            margin-top: 2%;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
+
+        ul li {
+            list-style: none;
+            color: white;
+            padding-top: 3%;
+            margin: 5%;
+            cursor: pointer;
+        }
+
+        ul li:hover {
+            font-weight: bold;
+            color: rgb(255, 181, 7);
+        }
+
+        .container {
+            padding: 2%;
+            background-color: #1f2855;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            border: none;
+            /* border-radius: 5%; */
+        }
+
+        /* right side navbar */
+        .navbar {
+            background-color: #071734;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;   
+        }
+
+        /* right box */
+
+        .cont {
+            background-color: #11233e;
+        }
+
+        /* <!-- video --> */
+
+        .vdo {
+            border-radius: 20px 40px;
+        }
+
+        /* bronze card list hover */
+        .bronzelist:hover {
+            color: rgb(212, 133, 37);
+        }
+
+        /* silver card list hover  */
+        .silverlist:hover {
+            color: rgb(124, 202, 195);
+        }
+
+        /* gold card list hover */
+        .goldlist:hover {
+            color: gold;
+        }
+
+        /* platinum card list hover */
+        .platinumlist:hover {
+            color: cyan;
+        }
+
+        /* animation 1 */
+        .pp1 {
+            animation: check;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-in-out;
+            animation-timeline: view();
+            animation-range: entry 0 cover 40%;
+        }
+
+        @keyframes check {
+            0% {
+                opacity: 0;
+                scale: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+                scale: 1;
+            }
+        }
+
+        /* aniamtion 2 */
+        .pp2 {
+            animation: check2;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-in-out;
+            animation-timeline: view();
+            animation-range: entry 0 cover 40%;
+        }
+
+        @keyframes check2 {
+            0% {
+                opacity: 0;
+                scale: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+                scale: 1;
+            }
+        }
+
+
+        @media only screen and (max-width: 1100px) {
+            .leftbox {
+                display: none;
+                /* z-index: 0; */
+            }
+
+            .rightbox {
+                border: none;
+                box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+                width: 100%;
+                margin-left: 0%;
+                /* height: 100vh; */
+            }
+
+        }
+
+        @media (min-width: 768px) {
+    .col-md-2 {
+        flex: 0 0 auto;
+        width:16.4%;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="outerbox container-fluid ">
+        <div class="leftbox container-fluid">
+            <div class="nav navbar container-fluid text-center" style="height: 10vh;">
+                <!-- <h3 class="text-warning text-center"> ACE ARENA !</h3> -->
+                <div class="time text-white"></div>
+            </div>
+
+            <div class="nav navbar container-fluid" style="height: 8vh;">
+
+                <button type="button" class="btn btn-primary btn-lg ps-4 pe-4 "
+                    style="height: 5vh; border-radius: 5px; border: none;"><a href="stakeloginpage.html"
+                        class="text-white" style="text-decoration: none;">CASINO</a></button>
+
+                <button type="button" class="btn btn-primary btn-lg ps-4 pe-4"
+                    style="height: 5vh; border-radius: 5px; border: none; "><a href="stakeinsidepage.html"
+                        class="text-white" style="text-decoration: none;">SPORTS</a></button>
+
+
+            </div>
+            <!-- 1st list -->
+            <div class="container mt-4">
+                <ul>
+                    <li><i class="fa-solid fa-gift"></i> <a href="stakeregisterpage.htm" style="color: white; text-decoration: none; ">SignIn/Register</a> <i class="fa-solid fa-angle-right"></i></li>
+                    <li><i class="fa-solid fa-star-of-life"></i> <a href="stakeaffilatepage.html"
+                            style="color: white; text-decoration: none; ">Payments</a></li>
+                    <li><i class="fa-solid fa-trophy"></i> <a href="stakevipclub.html"
+                            style="color: white; text-decoration: none; ">VIP Club</a></li>
+                    <li><i class="fa-regular fa-newspaper"></i> <a href="stakeblogpage.html"
+                            style="color: white; text-decoration: none;">Blog</a></li>
+                    <li><i class="fa-brands fa-rocketchat"></i> <a href="StakeGamePage.html"
+                        style="color: white; text-decoration: none;">Game_Section</a></li>
+                </ul>
+            </div>
+            <!-- second navigation bar -->
+            <div class="container mt-4">
+                <ul>
+                    <li><i class="fa-solid fa-handshake"></i> Sponsorships <i class="fa-solid fa-angle-right"></i></li>
+                    <li><i class="fa-solid fa-shield-halved"></i> <a
+                        style="color: white; text-decoration: none;" href="stakeProfilePage.htm">Profile</a></li>                    
+                        <li><i class="fa-solid fa-headphones"></i><a href="stakelivesupport.htm"
+                        style="color: white; text-decoration: none;">Live Support</a></li>
+                    <li><i class="fa-solid fa-globe"></i> Language</li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- rightbox -->
+        <div class="rightbox contanier-fluid ">
+
+            <nav class="navbar container-fluid navbar-expand-sm">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color:white;"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse collapse" id="navbarSupportedContent">
+                        <form action="" class="d-flex">
+                            <button type="button" id="open" class="btn btn-primary btn-lg mx-3"
+                                style="border-radius: 5px; border: none;"><i class="fa-solid fa-grip-lines p-2"
+                                    style=" border-radius: 5px; border: none; "></i></button>
+                        </form>
+
+                        <a class="navbar-brand " href="#" style="width: 10%;"><img style="width: 60%;"
+                                src="https://mybetting-in.imgix.net/assets/local/stake-logo-white-1_2022-12-24-062445_qtiy.png"
+                                alt=""></a>
+
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#ranking">Ranking</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#list">Other</a>
+                            </li>
+                        </ul>
+
+                        <form class="d-flex" role="search">
+                            <button class="btn SI text-white me-2" type="submit"><b>Sign_In</b></button>
+                            <button class="btn RG btn-primary" type="submit">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <!-- right container image section -->
+
+            <div class="container cont">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 mb-5">
+                        <h2 class="text-white">The Unrivaled VIP Experience</h2>
+                        <p class="text-white">
+                            Unlock exclusive benefits and recieve instantly withdrawable bonuses without any string
+                            attached.
+                        </p>
+                        <button type="button" class="btn btn-sm" style="background-color: rgb(39 243 16);"><b>Play
+                                Now</b></button>
+                    </div>
+                    <div class="col-md-4 offset-md-1 col-sm-12 vdo">
+                        <video class="vdo" width="100%" src="S T A K E.mp4" autoplay loop></video>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" id="ranking">
+                <div class="row">
+                    <center>
+                        <h5 class="text-white">Stake VIP Ranking System</h5>
+                    </center>
+                </div><br>
+                <div class="contanier">
+                    <div class="row">
+                        <!-- column 1 -->
+                        <div class="col-md-3 col-sm-6 mb-5">
+                            <div class="card" style="width: 15rem; background-color: #11233e;">
+                                <div class="card-body">
+                                    <button class="btn" style="background-color: rgb(212, 133, 37);">Bronze</button>
+                                    <h3 class="card-subtitle mt-1 mb-2 text-white">$10k</h3>
+                                    <h5 class="card-subtitle mb-2 text-white">Wager amount</h5>
+
+                                    <ul>
+                                        <li class="bronzelist"><i class="fa-regular fa-circle-check"
+                                                style="color: rgb(212, 133, 37);"></i>
+                                            Monthly Balance</li>
+                                        <li class="bronzelist"><i class="fa-regular fa-circle-check"
+                                                style="color: rgb(212, 133, 37);"></i>
+                                            Level Up Bonuses</li>
+                                        <li class="bronzelist"><i class="fa-regular fa-circle-check"
+                                                style="color: rgb(212, 133, 37);"></i>
+                                            Rakeback</li>
+                                        <li class="bronzelist"><i class="fa-regular fa-circle-check"
+                                                style="color: rgb(212, 133, 37);"></i>
+                                            Weekly Bonuses</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- column 2 -->
+                        <div class="col-md-3 col-sm-6 mb-5">
+                            <div class="card" style="width: 15rem; background-color: #11233e;">
+                                <div class="card-body">
+                                    <button class="btn" style="background-color: rgb(124, 202, 195);">Silver</button>
+                                    <h3 class="card-subtitle mt-1 mb-2 text-white">$50k - $100k</h3>
+                                    <h5 class="card-subtitle mb-2 text-white">Wager amount</h5>
+
+                                    <ul>
+                                        <li class="silverlist"><i class="fa-regular fa-circle-check"
+                                                style="color: rgb(124, 202, 195);"></i>
+                                            Monthly Balance</li>
+                                        <li class="silverlist"><i class="fa-regular fa-circle-check"
+                                                style="color: rgb(124, 202, 195);"></i>
+                                            Level Up Bonuses</li>
+                                        <li class="silverlist"><i class="fa-regular fa-circle-check"
+                                                style="color: rgb(124, 202, 195);"></i>
+                                            Rakeback</li>
+                                        <li class="silverlist"><i class="fa-regular fa-circle-check"
+                                                style="color: rgb(124, 202, 195);"></i>
+                                            Weekly Bonuses</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- column-3 -->
+
+                        <div class="col-md-3 col-sm-6">
+                            <div class="card" style="width: 15rem; background-color: #11233e;">
+                                <div class="card-body">
+                                    <button class="btn" style="background-color:gold;">Gold</button>
+                                    <h3 class="card-subtitle mt-1 mb-2 text-white">$100k</h3>
+                                    <h5 class="card-subtitle mb-2 text-white">Wager amount</h5>
+
+                                    <ul>
+                                        <li class="goldlist"><i class="fa-regular fa-circle-check"
+                                                style="color: gold;"></i>
+                                            Monthly Balance</li>
+                                        <li class="goldlist"><i class="fa-regular fa-circle-check"
+                                                style="color: gold;"></i>
+                                            Level Up Bonuses</li>
+                                        <li class="goldlist"><i class="fa-regular fa-circle-check"
+                                                style="color: gold;"></i>
+                                            Rakeback</li>
+                                        <li class="goldlist"><i class="fa-regular fa-circle-check"
+                                                style="color: gold;"></i>
+                                            Weekly Bonuses</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- column-4 -->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="card" style="width: 15rem; background-color: #11233e;">
+                                <div class="card-body">
+                                    <button class="btn" style="background-color: cyan;">Platinum</button>
+                                    <h3 class="card-subtitle mt-1 mb-2 text-white">$250k - $1M</h3>
+                                    <h5 class="card-subtitle mb-2 text-white">Wager amount</h5>
+
+                                    <ul>
+                                        <li class="platinumlist"><i class="fa-regular fa-circle-check"
+                                                style="color: cyan;"></i>
+                                            Monthly Balance</li>
+                                        <li class="platinumlist"><i class="fa-regular fa-circle-check"
+                                                style="color: cyan;"></i>
+                                            Level Up Bonuses</li>
+                                        <li class="platinumlist"><i class="fa-regular fa-circle-check"
+                                                style="color: cyan;"></i>
+                                            Rakeback</li>
+                                        <li class="platinumlist"><i class="fa-regular fa-circle-check"
+                                                style="color: cyan;"></i>
+                                            Weekly Bonuses</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- vip club benefits -->
+
+
+                        <div class="row mt-5">
+                            <center>
+                                <h5 class="text-white">Stake VIP Club Benefits</h5>
+                            </center>
+                        </div>
+
+                        <div class="row mt-3">
+                            <!-- col-1 -->
+                            <div class="col-5 pp1 ms-5 " style="background-color: #071734; border-radius: 5%; height: 13%;">
+                                <div class="row">
+                                    <div class="col-3 ">
+                                        <img class="mt-2" style="width: 100%; border-radius: 50%;" src="up.png" alt="">
+                                    </div>
+                                    <div class="col-8 ms-4 text-white ">
+                                        <h5>Boost</h5>
+                                        <p>A transient augmentation or illicit elevation in rank.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- col-2 -->
+                            <div class="col-5 pp2 ms-5 " style="background-color: #071734; border-radius: 5%; height: 13%;">
+                                <div class="row">
+                                    <div class="col-3 ">
+                                        <video class="mt-2" width="100% " style="border-radius: 50%;" src="up.mp4" autoplay
+                                            loop></video>
+                                    </div>
+                                    <div class="col-8 ms-4 text-white">
+                                        <h5>Dedicated VIP Host</h5>
+                                        <p>Our Dedicated VIP Host is committed to providing you with exceptional.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- col-3 -->
+                            <div class="col-5 pp1 ms-5 mt-3 "
+                                style="background-color: #071734; border-radius: 5%; height: 13%;">
+                                <div class="row">
+                                    <div class="col-3 ">
+                                        <img class="mt-2" style="width: 100%; border-radius: 50%;" src="crown.png" alt="">
+                                    </div>
+                                    <div class="col-8 ms-4 text-white">
+                                        <h5>Recent Play Bonuses</h5>
+                                        <p>Exclusive rewards and bonuses for loyal players and VIP members..
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- col-4 -->
+                            <div class="col-5 pp2 ms-5 mt-3 "
+                                style="background-color: #071734; border-radius: 5%; height: 13%;">
+                                <div class="row">
+                                    <div class="col-3 ">
+                                        <img class="mt-2" style="width: 100%; border-radius: 50%;" src="levelup.png" alt="">
+                                    </div>
+                                    <div class="col-8 ms-4 text-white">
+                                        <h5>Level-Ups</h5>
+                                        <p>Each level-up brings new rewards, bonuses, and benefits!.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- col-5 -->
+                            <div class="col-5 pp1 ms-5 mt-3 "
+                                style="background-color: #071734; border-radius: 5%; height: 13%;">
+                                <div class="row">
+                                    <div class="col-3 ">
+                                        <img class="mt-2" style="width: 100%; border-radius: 50%;" src="bespoke1.png"
+                                            alt="">
+                                    </div>
+                                    <div class="col-8 ms-4 text-white">
+                                        <h5>Bespoke</h5>
+                                        <p>Custom-made or tailored to meet specific individual needs perfectly.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <!-- frequently asked -->
+                        <div class="row mt-5">
+                            <center>
+                                <h4 class="text-white">Frequently Asked Questions</h4>
+                            </center>
+                            <center>
+                                <h6 class="text-white">Reach out to our award winning support team</h6>
+                            </center>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-3 col-sm-6 offset-md-1 offset-sm-1"
+                                style="background-color: #11233e; border-radius: 5%; height: 20vh;">
+                                <ul class="list-group">
+                                    <details class=" text-white" style="background-color: #11233e;">
+                                        <summary>General</summary>
+                                        <!-- <p>Learn about Stake's online gaming platform and features.</p> -->
+                                    </details><br>
+                                    <details class=" text-white" style="background-color: #11233e;">
+                                        <summary>Benefits</summary>
+                                        <!-- <p>Discover the rewards and perks of being a Stake user.</p> -->
+                                    </details><br>
+                                    <details class=" text-white" style="background-color: #11233e;">
+                                        <summary>VIP Hosts</summary>
+                                        <!-- <p>Get personalized support from dedicated VIP managers.</p> -->
+                                    </details><br>
+                                </ul>
+                            </div>
+                            <div class="col-md-7 col-sm-12 offset-md-1 offset-sm-0"
+                                style="background-color: #11233e; border-radius: 5%; z-index: 1;">
+                                <!-- // list -->
+                                <!-- <ul> -->
+                                <details class=" text-white p-3 m-2"
+                                    style="background-color: #1f2855; border-radius: 10px;">
+                                    <summary><b>Why is Stake VIP Program the best?</b></summary><br>
+                                    <li>The Stake VIP Program offers exclusive rewards, personalized support, and
+                                        priority access to new features.</li><br>
+                                    <li>As a VIP member, you can enjoy benefits such as increased bonuses, faster
+                                        withdrawals, and a dedicated VIP manager.</li>
+                                </details>
+                                <details class=" text-white p-3 m-2"
+                                    style="background-color: #1f2855; border-radius: 10px;">
+                                    <summary><b>How much has stake given out in bonuses?</b></summary><br>
+                                    <li>Stake has given out millions of dollars in bonuses to its users since its
+                                        inception.</li><br>
+                                    <li>The exact figure is not publicly disclosed, but it's safe to say that Stake is
+                                        one of the most generous online gaming platforms when it comes to rewarding its
+                                        users.</li>
+                                </details>
+                                <details class=" text-white p-3 m-2"
+                                    style="background-color: #1f2855; border-radius: 10px;">
+                                    <summary><b>How do i enter the $75,000 weekly raffle?</b></summary><br>
+                                    <li>To enter the $75,000 weekly raffle, simply place a bet on any of the eligible
+                                        games on Stake.</li><br>
+                                    <li>For every bet you place, you'll earn a ticket into the raffle. The more you bet,
+                                        the more tickets you'll receive, increasing your chances of winning the grand
+                                        prize.</li>
+                                </details>
+                                <details class=" text-white p-3 m-2"
+                                    style="background-color: #1f2855; border-radius: 10px;">
+                                    <summary><b>Where can i find the stake telegram channel?</b></summary><br>
+                                    <li>You can find the official Stake Telegram channel by searching for @StakeSupport
+                                        on Telegram.</li><br>
+                                    <li>This channel is a great resource for staying up-to-date on the latest news,
+                                        promotions, and updates from Stake.</li>
+                                </details>
+                                <details class=" text-white p-3 m-2"
+                                    style="background-color: #1f2855; border-radius: 10px;">
+                                    <summary><b>Where can i find the stake VIP telegram channel?</b></summary><br>
+                                    <li>The Stake VIP Telegram channel is exclusive to VIP members.</li><br>
+                                    <li>If you're a VIP member, you should have received an invitation. If not, contact
+                                        your VIP manager for assistance.</li>
+                                </details>
+                                <!-- </ul> -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div><br>
+
+                <div class="container" style="background-color: #071734;">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 text-white">
+                            <h3>Live, 24-hour customer support</h3>
+                            <p>24-hour customer support is used to provide real-time assistance to players for any
+                                queries related to their Casino & Sportsbook. This support is available via live chat
+                                24/7, where players can get help with issues such as sports betting, depositing, and
+                                withdrawing.</p>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <b>English</b>
+                                </a>
+
+                                <ul class="dropdown-menu" style="background-color: #1f2855;">
+                                    <li><a class="dropdown-item" href="#">Hindi</a></li>
+                                    <li><a class="dropdown-item" href="#">Spanish</a></li>
+                                    <li><a class="dropdown-item" href="#">other</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                            <button type="button" class="btn btn-primary btn-lg">Chat with us</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- endlist start-->
+
+            <div class="container-fluid mt-5" style="background-color: #071223;" id="list">
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>Sports</h3>
+                            </li>
+                            <li>sportsbook</li>
+                            <li>live support</li>
+                            <li>soccer</li>
+                            <li>basketball</li>
+                            <li>tennis</li>
+                            <li>esports</li>
+                            <li>betting</li>
+                            <li>racing</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>Casino</h3>
+                            </li>
+                            <li>casino games</li>
+                            <li>Slots</li>
+                            <li>Live Casino</li>
+                            <li>Roulette</li>
+                            <li>Blackjack</li>
+                            <li>Providers</li>
+                            <li>VIP club</li>
+                            <li>Promotions</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>Support</h3>
+                            </li>
+                            <li>Fairness</li>
+                            <li>Affiliate</li>
+                            <li>Gambling</li>
+                            <li>Aware</li>
+                            <li>Help Center</li>
+                            <li>Guides</li>
+                            <li>Local Currency</li>
+                            <li>Crypto</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>Community</h3>
+                            </li>
+                            <li>Blog</li>
+                            <li>Forum</li>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Instagram</li>
+                            <li>Youtube</li>
+                            <li>Shop</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>About_Us</h3>
+                            </li>
+                            <li>Privacy Policy</li>
+                            <li>Licenses</li>
+                            <li>AML Policy</li>
+                            <li>Terms&Conditions</li>
+                            <li>Self Exclusion</li>
+                            <li>Primedice</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <ul>
+                            <li>
+                                <h3>Language</h3>
+                            </li>
+                            <li>English</li>
+                            <li>Odds</li>
+                            <li>Decimal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- end list end -->
+
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // open close side toggle bar
+
+        let openClick = document.querySelector("#open");
+        let leftbox = document.querySelector(".leftbox");
+        let rightbox = document.querySelector(".rightbox");
+        const mediaQ = window.matchMedia("(min-width: 1100px)");
+        let check = mediaQ.matches;
+        openClick.addEventListener("click", () => {
+            if (check) {
+                leftbox.classList.add("hidden");
+                rightbox.classList.add("rightbox-tab");
+                check = false;
+            }
+            else {
+                rightbox.classList.remove("rightbox-tab");
+                leftbox.classList.remove("hidden");
+                check = true;
+            }
+        });
+
+        // show date time
+        let time=document.querySelector(".time");
+        setInterval(() => {
+            let now=new Date();
+            time.textContent=now;
+        }, 1000);
+        
+        // left side cols
+        // let left = document.querySelectorAll(".pp1");
+        // window.addEventListener("scroll", () => {
+        //     left.forEach((el) => {
+        //         el.classList.add("panel1");
+        //     })
+        // })
+
+        // right side cols
+        // let right = document.querySelectorAll(".pp2");
+        // window.addEventListener("scroll", () => {
+        //     right.forEach((el) => {
+        //         el.classList.add("panel2");
+        //     })
+        // })
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

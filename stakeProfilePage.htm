@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> <!-- Unicode Transformation Format -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stake</title>
+    <script src="https://kit.fontawesome.com/ab09901365.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("neWSj0rgRd56aeGqI");
+        })();
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #11233e;
+        }
+
+        .outerbox {
+            display: flex;
+        }
+
+        .leftbox {
+            border: none;
+            width: 20%;
+            height: 100vh;
+            position: fixed;
+            box-shadow: rgb(255, 255, 255) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            background-color: #071734;
+        }
+
+        .rightbox {
+            border: none;
+            box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+            width: 85%;
+            margin-left: 20%;
+            /* height: 390vh; */
+        }
+
+        .rightbox-tab {
+            border: none;
+            box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+            width: 95% !important;
+            margin-left: 5% !important;
+            /* height: 390vh; */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .row {
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 2%;
+        }
+
+        .nav {
+            display: flex;
+            margin-top: 2%;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
+
+        ul li {
+            list-style: none;
+            color: white;
+            padding-top: 3%;
+            margin: 5%;
+            cursor: pointer;
+        }
+
+        ul li:hover {
+            font-weight: bold;
+            color: rgb(255, 181, 7);
+        }
+
+        .container {
+            padding: 2%;
+            background-color: #1f2855;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            border: none;
+            border-radius: 5%;
+        }
+
+        /* right side navbar */
+        .navbar {
+            background-color: #071734;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
+
+        .name {
+            font-family: "Afacad Flux", sans-serif;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            .leftbox {
+                display: none;
+            }
+
+            .rightbox {
+                border: none;
+                box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+                width: 100%;
+                margin-left: 0%;
+            }
+
+        }
+
+        @media (min-width: 768px) {
+            .col-md-2 {
+                flex: 0 0 auto;
+                width: 16.4%;
+            }
+        }
+
+        input {
+            width: 60%;
+            height: 4vh;
+            border-radius: 5px;
+            border: none;
+        }
+
+        #camera {
+            transform: translate(-120%, 250%);
+        }
+
+        .profile-card {
+            transform: translate(50%);
+            transition: all;
+            transition-duration: 2s;
+        }
+
+        .profile-cardTemp {
+            transform: perspective(100px);
+            animation-name: pct;
+            animation-duration: 1.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes pct {
+            0% {
+                transform: translate(50%);
+            }
+
+            100% {
+                transform: translate(0%);
+            }
+        }
+
+
+        .edit-details-card {
+            opacity: 0;
+            transform: translateX(10%);
+            transition: opacity 0.5s, transform 0.5s;
+            filter: blur(10px);
+        }
+
+        .edit-details-card.show {
+            opacity: 1;
+            transform: translateX(0);
+            filter: blur(0);
+            transition: opacity 0.5s, transform 0.5s, filter 0.5s;
+        }
+
+        .edit-details-card.hide {
+            opacity: 0;
+            transform: translateX(10%);
+            transition: opacity 0.5s, transform 0.5s;
+            filter: blur(10px);
+        }
+
+        .stats {
+            animation-name: stats;
+            animation-duration: 1.5s;
+            animation-timing-function: ease-in-out;
+
+        }
+
+        @keyframes stats {
+            0% {
+                /* transform: scale(1); */
+                /* transform: perspective(); */
+                transform: translate(5%);
+                filter: blur(100px);
+            }
+
+            /* 50%{ 
+                filter: blur(100px);
+            } */
+            100% {
+                filter: blur(0px);
+            }
+        }
+
+        /* mailid input */
+        #mailId{
+            /* width: 2%; */
+            height: 5vh;
+            margin-left: 1%;
+
+        }
+
+        /* feedback */
+
+        .feedback {
+            font-family: "Matemasie", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: underline;
+            animation-name: name;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+        }
+
+        #feedback{
+            outline:invert;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid outerbox">
+        <div class="leftbox container-fluid">
+            <div class="nav navbar container-fluid text-center" style="height: 10vh;">
+                <!-- <h3 class="text-warning text-center"> ACE ARENA !</h3> -->
+                <div class="time text-white"></div>
+            </div>
+
+            <div class="nav navbar container-fluid" style="height: 8vh;">
+
+                <button type="button" class="btn btn-primary btn-lg ps-4 pe-4 "
+                    style="height: 5vh; border-radius: 5px; border: none;"><a href="stakeloginpage.html"
+                        class="text-white" style="text-decoration: none;">CASINO</a></button>
+
+                <button type="button" class="btn btn-primary btn-lg ps-4 pe-4"
+                    style="height: 5vh; border-radius: 5px; border: none; "><a href="stakeinsidepage.html"
+                        class="text-white" style="text-decoration: none;">SPORTS</a></button>
+
+
+            </div>
+            <!-- 1st list -->
+            <div class="container mt-4">
+                <ul>
+                    <li><i class="fa-solid fa-gift"></i> <a href="stakeregisterpage.htm"
+                            style="color: white; text-decoration: none; ">SignIn/Register</a> <i
+                            class="fa-solid fa-angle-right"></i></li>
+                    <li><i class="fa-solid fa-star-of-life"></i> <a href="stakeaffilatepage.html"
+                            style="color: white; text-decoration: none; ">Payments</a></li>
+                    <li><i class="fa-solid fa-trophy"></i> <a href="stakevipclub.html"
+                            style="color: white; text-decoration: none; ">VIP Club</a></li>
+                    <li><i class="fa-regular fa-newspaper"></i> <a href="stakeblogpage.html"
+                            style="color: white; text-decoration: none;">Blog</a></li>
+                            <li><i class="fa-brands fa-rocketchat"></i> <a href="StakeGamePage.html"
+                                style="color: white; text-decoration: none;">Game-section</a></li>
+                </ul>
+            </div>
+            <!-- second navigation bar -->
+            <div class="container mt-4">
+                <ul>
+                    <li><i class="fa-solid fa-handshake"></i> Sponsorships <i class="fa-solid fa-angle-right"></i></li>
+                    <li><i class="fa-solid fa-shield-halved"></i> <a style="color: white; text-decoration: none;"
+                            href="stakeProfilePage.htm">Profile</a></li>
+                    <li><i class="fa-solid fa-headphones"></i><a href="stakelivesupport.htm"
+                            style="color: white; text-decoration: none;">Live Support</a></li>
+                    <li><i class="fa-solid fa-globe"></i> Language</li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- rightbox -->
+        <div class="rightbox container-fluid" id="home">
+
+            <nav class="navbar container-fluid navbar-expand-sm">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color:white;"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse collapse" id="navbarSupportedContent">
+                        <form action="" class="d-flex">
+                            <button type="button" id="open" class="btn btn-primary btn-lg mx-3"
+                                style="border-radius: 5px; border: none;"><i class="fa-solid fa-grip-lines p-2"
+                                    style=" border-radius: 5px; border: none; "></i></button>
+                        </form>
+
+                        <a class="navbar-brand " href="#" style="width: 10%;"><img style="width: 60%;"
+                                src="https://mybetting-in.imgix.net/assets/local/stake-logo-white-1_2022-12-24-062445_qtiy.png"
+                                alt=""></a>
+
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#Activity">Activity</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#FB">Feedback</a>
+                            </li>
+                        </ul>
+
+                        <form class="d-flex" role="search">
+                            <button class="btn SI text-white me-2" type="submit"><b>Sign_In</b></button>
+                            <button class="btn RG btn-primary" type="submit">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <!-- right container image section -->
+
+            <div id="home" class="container " style="background-color: #071734; border-radius: 1px;"><br><br>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card text-white profile-card"
+                            style="background-color: #1f2855; border: none; border-radius: 20px;"><br>
+                            <center>
+                                <img src="boxvip.png" id="image" class="userImage" alt="" height="100vh" width="20%"
+                                    style="border-radius: 30%;">
+                                <label for="fileInput"
+                                    style="color: rgb(10, 10, 10); border-radius: 20px; font-size: 20px; cursor: pointer;">
+                                    <i class="fa-solid fa-camera text-white" id="camera"></i>
+                                    <input type="file" id="fileInput" style="display: none;" />
+                                </label>
+                                <input type="file" id="fileInput" name="Edit Image" style="display: none;">
+                                <hr><br>
+                                <h2 class="name" id="displayName">Shashank Chauhan</h2>
+                                <p class="name" id="displayUsername">@K2p939sSkaTjf</p>
+                                <h4 class="name" id="displayEmail">Email: shashankchauhan134@gmail.com</h4><br>
+                                <div class="row">
+                                    <div class="col-2 offset-3">100 <span class="text-warning"><b>Wins</b></span></div>
+                                    <div class="col-2">100 <span class="text-warning"><b>Match</b></span></div>
+                                    <div class="col-2">97% <span class="text-warning"><b>MWS</b></span></div>
+                                </div><br>
+                                <button class="btn bg-primary text-white" id="editProfileButton">Edit Profile</button>
+                                <br><br><br>
+                            </center>
+                        </div>
+                    </div>
+                    <div class="col-4 offset-1">
+                        <div class="card text-white edit-details-card"
+                            style="background-color: #1f2855; border: none; border-radius: 20px;">
+                            <center>
+                                <center><br>
+                                    <h4 class="name">
+                                        <h4>Edit Details</h4>
+                                        <hr>
+                                        <label for="name">
+                                            <h5>Name: </h5>
+                                        </label>
+                                        <input type="text" id="name">
+                                        <br><br>
+                                        <label for="email">
+                                            <h5>Email: </h5>
+                                        </label>
+                                        <input type="email" id="email">
+                                        <br><br>
+                                        <button class="btn bg-primary text-white" id="saveChangesButton">Save
+                                            Changes</button>
+                                        <br><br>
+                                </center>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- profile stats -->
+                <br><br><br>
+                <div id="Activity" class="row text-white stats" style="width: 100%; border: 1px solid white;">
+                    <div class="col-3 ms-5 p-2"><br>
+                        <h3>Profile Statistics</h3><br>
+                        <p>Total Wins: 100</p>
+                        <p>Total Losses: 0</p>
+                        <p>Total Bets Placed: 20</p>
+                    </div>
+                    <div class="col-3 ms-5  p-2"><br>
+                        <h3>Recent Activity</h3><br>
+                        <li>Won $100 on Bet 1</li>
+                        <li>Lost $5 on Bet 2</li>
+                        <li>Placed Bet 3</li>
+                        <li>Best Win Streak(%) 97%</li>
+                    </div>
+                    <div class="col-4 ms-5 p-2"><br>
+                        <h3>Account Information</h3><br>
+                        <p>Username: @K2p939sSkaTjf</p>
+                        <p class="nameOnAccountInfo">Name: Shashank Chauhan</p>
+                        <p class="emailOnAccountInfo">Email: shashankchauhan134@gmail.com</p>
+
+                    </div>
+                </div>
+                <br><br><br>
+
+                <!-- send feedback with email -->
+
+                <div id="FB" class="container text-warning text-center">
+                    <h4 class="feedback">F E E D B A C K </h4><br><br>
+                    <div class="row">
+                        <div class="col-6 offset-1">
+                            <label for=""><strong><h5>Email : </h5></strong> </label>
+                            <input type="email" id="mailId" placeholder="Enter your mail"><br><br>
+                            <label for=""><strong><h5>Feedback : </h5></strong> </label>
+                            <textarea name="feedback" id="feedback" cols="50" rows="5"
+                                style="color: white; background-color: #071734; border-radius: 10px;"></textarea>
+                        </div>
+                        <div class="col-4 mt-5">
+                            <button class="btn btn-primary" onclick="sendFeedback()">Send Feedback To our Team</button>
+                            <br><br>
+                            <h5 class="text-white">Send your Experience in just one click !</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!--end of right container-->
+        </div> <!--end of main div which contain these two left and right container-->
+
+        <script>
+
+            // open close side toggle bar
+
+            let openClick = document.querySelector("#open");
+            let leftbox = document.querySelector(".leftbox");
+            let rightbox = document.querySelector(".rightbox");
+            const mediaQ = window.matchMedia("(min-width: 1100px)");
+            let check = mediaQ.matches;
+            openClick.addEventListener("click", () => {
+                if (check) {
+                    leftbox.classList.add("hidden");
+                    rightbox.classList.add("rightbox-tab");
+                    check = false;
+                }
+                else {
+                    rightbox.classList.remove("rightbox-tab");
+                    leftbox.classList.remove("hidden");
+                    check = true;
+                }
+            });
+
+            // edit image
+
+            let image = document.getElementById('image');
+            let fileInput = document.getElementById('fileInput');
+
+            fileInput.addEventListener('change', (e) => {
+                let file = fileInput.files[0];
+                let reader = new FileReader();
+                reader.onload = (event) => {
+                    image.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+
+            // edit profile
+
+            let editProfileButton = document.getElementById('editProfileButton');
+            let editDetailsCard = document.querySelector('.edit-details-card');
+            let displayName = document.getElementById('displayName');
+            let displayUsername = document.getElementById('displayUsername');
+            let displayEmail = document.getElementById('displayEmail');
+            let nameInput = document.getElementById('name');
+            let emailInput = document.getElementById('email');
+            let saveChangesButton = document.getElementById('saveChangesButton');
+            let PC = document.querySelector(".profile-card");
+
+            editDetailsCard.style.display = 'none';
+
+            editProfileButton.addEventListener('click', () => {
+                PC.classList.add("profile-cardTemp");
+                PC.classList.remove("profile-card");
+                setTimeout(() => {
+                    editDetailsCard.classList.add("show");
+                }, 700);
+                editDetailsCard.style.display = 'block';
+            });
+
+            saveChangesButton.addEventListener('click', () => {
+                PC.classList.add("profile-card");
+                PC.classList.remove("profile-cardTemp");
+
+                editDetailsCard.classList.add("hide");
+                setTimeout(() => {
+                    editDetailsCard.classList.remove("show", "hide");
+                    editDetailsCard.style.display = 'none';
+                }, 1000);
+
+                // editDetailsCard.style.display = 'none';
+                let newName = nameInput.value;
+                let newEmail = emailInput.value;
+                displayName.textContent = newName;
+                displayEmail.textContent = `Email: ${newEmail}`;
+                nameInput.value = "";
+                emailInput.value = "";
+
+                let nameElement = document.querySelector('.nameOnAccountInfo');
+                let emailElement = document.querySelector('.emailOnAccountInfo');
+                nameElement.textContent = `Name: ${newName}`;
+                emailElement.textContent = `Email: ${newEmail}`;
+            });
+
+            // show date time
+            let time = document.querySelector(".time");
+            setInterval(() => {
+                let now = new Date();
+                time.textContent = now;
+            }, 1000);
+
+            // sending mail
+
+            function sendFeedback() {
+                var params={
+                    form_name: "Feedback",
+                    email_id: document.querySelector("#mailId").value,
+                    message: document.querySelector("#feedback").value
+                }
+                emailjs.send("service_3s5rivj","template_6374juf",params).then(function(res){
+                    alert("Mail Sent Succesfully 👍");
+                });
+                document.querySelector("#feedback").value="";
+                document.querySelector("#mailId").value="";
+            }
+
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
