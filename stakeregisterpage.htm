@@ -515,42 +515,7 @@
         </form>
     </div>
 
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-        import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
-
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyA57p2wGSjsKfETD24XYkHHkfnmhN2BjJs",
-            authDomain: "signinform-afbc7.firebaseapp.com",
-            projectId: "signinform-afbc7",
-            storageBucket: "signinform-afbc7.appspot.com",
-            messagingSenderId: "571113230002",
-            appId: "1:571113230002:web:070678763539d371f9c3ab"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        // get ref to database
-
-        const db = getDatabase(app);
-
-        document.getElementById("SIGNINBTN").addEventListener("click", (e) => {
-            e.preventDefault();
-            set(ref(db, 'user/' + document.getElementById("Username").value), {
-                username: document.getElementById("Username").value,
-                email: document.getElementById("email").value,
-                password: document.getElementById("password").value
-            }).then(() => {
-                window.location.href = "stakeloginpage.html";
-            })
-
-        });
-
-
-    </script>
+    
 
     <script>
 
